@@ -305,7 +305,7 @@ def download(
         raise click.BadOptionUsage("--out", f"'{out}' path not valid")
 
     if pack_name:
-        dir_path = os.path.join(out, pack_name)
+        dir_path = os.path.join(out, pack_name.replace("|", "-"))
         pattern = r"Session \d+ of (Level \d+)"
         level = re.findall(pattern, filename)
         if level:
